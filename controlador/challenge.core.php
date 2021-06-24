@@ -47,7 +47,7 @@ class ChallengeCore {
         //ARBOL ARMADO
         $vecinos = self::getNeighborNodes($nodoRaiz, $intNodo);
         //Se regresa esta cadena por que en la llamada a la API ya contiene la estructura
-        //del JSON que se va a mostrar.
+        //del JSON que se va a mostrar
         return '"left": "' . $vecinos[0] . '", "right":"' . $vecinos[1] . '" ';
     }
 
