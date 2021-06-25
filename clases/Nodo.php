@@ -26,6 +26,20 @@ class Nodo {
      */
     private $nodo_derecho;
     
+    public $explorado;
+    
+    /**
+     *
+     * @var Nodo 
+     */
+    public $nodo_vecino_izquierdo;
+    
+    /**
+     *
+     * @var Nodo 
+     */
+    public $nodo_vecino_derecho;
+    
     public function __construct($obj_dato) {
         $this->dato = $obj_dato;
     }

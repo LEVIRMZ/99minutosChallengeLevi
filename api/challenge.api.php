@@ -20,10 +20,9 @@ class ChallengeaPI {
     }
     
     public function obtenerHeightOfBinaryList() {
-        //Se supone que llega un arreglo en $arr_valores
-        //verificar y ver si se envía un string para parsearlo con json y que sea una
-        //variable de tipo arreglo lo que se pase al método obtenerHeightOfBinaryList
-        $height = ChallengeCore::obtenerHeightOfBinaryList();
+        //PASAR PARÁMETRO DE TIPO STRING Y CONVERTIR A ARRAY
+        $array_convertido = [1, 2, 3, 4, 5, 6, 7, 8];
+        $height = ChallengeCore::obtenerHeightOfBinaryList($array_convertido);
         echo '{"height": '.$height.'}';
     }
     
@@ -32,10 +31,8 @@ class ChallengeaPI {
         echo '{"neighbors": ['.$data.']}';
     }
     
-    public function getBreadthFirstSearch($arr_bfs_search) {
-        //verificar que tipo mandamos en el parámetro $arr_bfs_search 
-        //para saber si convertirlo a array o no
-        $bfs = ChallengeCore::getBreadthFirstSearch($arr_bfs_search);
+    public function getBreadthFirstSearch() {
+        $bfs = ChallengeCore::getBreadthFirstSearch();
         echo '{"bfs": '.$bfs.'}';
     }
 }
@@ -53,14 +50,16 @@ if (isset($request_post_code) && $request_post_code != '') {
             $api->obtenerHeightOfBinaryList();
             break;
         
-        case 'GETNeighbor ':
+        case 'GETNeighbor':
             $api = new ChallengeaPI();
-            $nodo = isset($data_pos['nodo']) && !empty($data_pos['nodo']) ? $data_pos['nodo'] : [];
+            $nodo = isset($data_post['nodo']) && !empty($data_post['nodo']) ? $data_post['nodo'] : 0;
             $api->obtenerNeighbors($nodo);
             break;
         
         case 'GETBFS':
             //Recibir parámetros y llamar clase API/CONTROLADOR
+            $api = new ChallengeaPI();
+            $api->getBreadthFirstSearch([-3, -4, 1]);
             break;
         default:
             ChallengeaPI::printAdvertencia('El código enviado no existe registrado');

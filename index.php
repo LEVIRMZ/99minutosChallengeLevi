@@ -22,9 +22,19 @@ and open the template in the editor.
         <div>
             <h3>Returns the neighbor nodes of the node that contains the given integer</h3>
             <form method="POST" action="api/challenge.api.php">
-                <input type="number" name="nodo" value="0">
+                <input type="number" name="nodo" value="2">
                 <input type="submit" class="boton" value="Get Neighbor Nodes">
                 <input type="hidden" value="GETNeighbor" name="request_code">
+            </form>
+            <hr>
+        </div>
+        
+        <div>
+            <!--  -->
+            <h3>Returns the breadth-first search (BFS) of the binary tree [-3,-4,1]</h3>
+            <form method="POST" action="api/challenge.api.php">
+                <input type="submit" class="boton" value="BFS">
+                <input type="hidden" value="GETBFS" name="request_code">
             </form>
             <hr>
         </div>
